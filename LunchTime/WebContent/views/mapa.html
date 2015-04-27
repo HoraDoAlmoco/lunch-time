@@ -1,0 +1,69 @@
+<div ng-app="lunchTime" ng-controller="MapController">
+	<div class="core-toolbar" ng-class="coreToolBar">
+		<div class="menu-icon" ng-click="menushow()" ng-class="iconMenuClass">
+			
+		</div>
+		<div class="back-icon" ng-click="searchshow()" ng-class="iconSearchBackClass">
+			
+		</div>
+		<div id="core-title" ng-class="coreTitle">
+			{{title}}
+			<div class="search-input" ng-class="iconSearchBackClass">
+				<input type="text" placeholder="Busca" autofocus="true" ng-model="searchtext.titulo" ng-change="changesearch()"/>
+			</div>
+		</div>
+		<div class="search-icon" ng-click="searchshow()" ng-class="iconSearchClass">
+			
+		</div>
+		<div class="dummy-div" ng-class="dummyDiv"></div>
+	</div>
+	<div class="core-searchlist">
+		<div class="searchlist" ng-class="coresearchlist">
+			<ul>
+				<li ng-repeat="marker in markers | filter:searchtext" ng-click="openInfoWindow($event, marker)">
+					<div class="searchlistimg {{marker.categoria}}"></div>
+					<span class="searchlisttitle">{{marker.titulo}}</span><span class="searchlistendereco">{{marker.endereco}}</span>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div id="map-canvas" ng-click="menucontexto()"></div>
+	<div id="menu-id" class="menu" ng-class="menuClass">
+		<div class="menu-principal">
+			<ul class="lista-principal">
+				<li>
+					<span id="meus-dados-icon"></span>
+					<div>
+						<span id="meus-dados-label">Meus dados</span>
+					</div>
+				</li>
+				<li>
+					<span id="meus-grupos-icon"></span>
+					<div>
+						<span id="meus-grupos-label">Meus grupos</span>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="menu-card">
+			<ul class="lista-card">
+				<li ng-repeat="marker in markers | orderBy : ['-votado', '-quantidade'] | filter : filtroLocais">
+					<div class="card">
+						<div class="card-marker-icon {{marker.categoria}}"></div>
+						<div class="card-text-wrapper">
+							<div class="main-text card-text-truncate-and-wrap" ng-click="openInfoWindow($event, marker)">{{marker.titulo}}</div>
+							<div class="address-text card-text-truncate-and-wrap">{{marker.endereco}}</div>
+							<div class="info-text card-text-truncate-and-wrap">{{marker.extra}}</div>
+						</div>
+						<div class="card-info">
+							<div class="card-info-text">
+								<a>{{marker.votos}}</a>
+							</div>
+							<div class="card-info-vote {{marker.votado}}"></div>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
