@@ -516,3 +516,9 @@ body {
 .voted {
 	background-image: url(../img/ic_place_black_36dp.png);
 }
+
+.map-add-group {
+	color: #4272db;
+  	text-decoration: none;
+  	cursor: pointer;
+}
