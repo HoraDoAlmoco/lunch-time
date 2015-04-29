@@ -1,0 +1,39 @@
+<div ng-app="lunchTime" id="lunchTimeApp" ng-controller="UserController">
+	<div class="core-toolbar" ng-class="coreToolBar">
+		<div class="user-back-icon" ng-click="backtomap()" ng-class="iconUserBackClass">
+			
+		</div>
+		<div id="core-title" ng-class="coreTitle">
+			{{title}}
+		</div>
+		<div class="dummy-div" ng-class="dummyDiv"></div>
+	</div>
+	<div class="overlay-white">
+		<div class="user-form">
+			<div class="user-photo">
+			</div>
+			<div class="user-data">
+				<div class="user-data-name">
+					{{name}}
+				</div>
+				<div class="user-data-login">
+					{{login}}
+				</div>
+				<div class="user-data-email">
+					{{email}}
+				</div>
+				<div class="user-data-pass">
+					<a>alterar senha</a>
+				</div>
+				<div class="buttons">
+					<div>
+						<input id="cancel" type="submit" value="Cancelar"/>
+					</div>
+					<div>
+						<input id="save" type="submit" value="Salvar"/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

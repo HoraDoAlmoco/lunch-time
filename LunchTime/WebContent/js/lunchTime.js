@@ -14,6 +14,11 @@ var luchTime = angular.module('lunchTime', [
 			templateUrl: "views/mapa.html",
 			params: {'centerLat' : localPrincipal.latitude, 'centerLng' : localPrincipal.longitude},
 			controller: 'MapController'
+		})
+		.state('user', {
+			url: "/user",
+			templateUrl: "views/user.html",
+			controller: "UserController"
 		});
 })
 .directive("setOnClick", function($compile){
@@ -38,6 +43,10 @@ var luchTime = angular.module('lunchTime', [
 	}
 }])
 .controller('MapController', ['$scope', '$state', '$stateParams', '$document', function($scope, $state, $stateParams, $document){
+	
+	$scope.meusdados = function (){
+		$state.go("user", {});
+	}
 	
 	var noPoi = [
  	{
@@ -258,31 +267,46 @@ var luchTime = angular.module('lunchTime', [
  		console.log("link clicked");
  	}
  	
+}])
+.controller('UserController', ['$scope', '$state', '$stateParams', '$document', function($scope, $state, $stateParams, $document){
+	$scope.title = "Meus dados";
+	$scope.coreToolBar = "blue";
+	
+	$scope.name = "Nome e Sobrenome";
+	$scope.login = "login para login :P";
+	$scope.email = "email@emailqualquer.com";
+	
+	$scope.backtomap = function (){
+		$state.go("mapa", {
+			'centerLat': localPrincipal.latitude,
+			'centerLng': localPrincipal.longitude
+		});
+	}
 }]);
 
-	function outaddtogroup(){
-		angular.element(document.getElementById('lunchTimeApp')).scope().addtogroup();
-	}
 
-	function fixInfoWindow(){
- 	 	var set = google.maps.InfoWindow.prototype.set;
- 	 	google.maps.InfoWindow.prototype.set = function (key, val) {
- 			var self = this;
- 	        if(key === "map") {
- 	        	if (!this.anchor) {
- 	        		var link = angular.element("<a class='map-add-group' onclick='outaddtogroup()'>Adicionar ao grupo</a>");
- 	        		var divlist = angular.element(this.content).find("div");
- 	        		var gmrev;
- 	        		for(var i = 0; i < divlist.length; i++) {
- 	        			if(angular.element(divlist[i]).hasClass("gm-rev")) {
- 	        				gmrev = divlist[i];
- 	        				break;
- 	        			}
- 	        		}
- 	                angular.element(gmrev).append(angular.element("<div style='float:right;'></div>").append(link));
- 	        	}
- 	        }
- 	        set.apply(this, arguments);
- 	 	}
+function outaddtogroup(){
+	angular.element(document.getElementById('lunchTimeApp')).scope().addtogroup();
+}
+
+function fixInfoWindow(){
+ 	var set = google.maps.InfoWindow.prototype.set;
+ 	google.maps.InfoWindow.prototype.set = function (key, val) {
+		var self = this;
+        if(key === "map") {
+        	if (!this.anchor) {
+        		var link = angular.element("<a class='map-add-group' onclick='outaddtogroup()'>Adicionar ao grupo</a>");
+        		var divlist = angular.element(this.content).find("div");
+        		var gmrev;
+        		for(var i = 0; i < divlist.length; i++) {
+        			if(angular.element(divlist[i]).hasClass("gm-rev")) {
+        				gmrev = divlist[i];
+        				break;
+        			}
+        		}
+                angular.element(gmrev).append(angular.element("<div style='float:right;'></div>").append(link));
+        	}
+        }
+        set.apply(this, arguments);
  	}
-
+}
