@@ -10,6 +10,8 @@
 	</div>
 	<div class="overlay-white">
 		<div class="user-form">
+			<div id="user-big-photo">
+			</div>
 			<div class="user-photo">
 			</div>
 			<div class="user-data">
@@ -23,14 +25,14 @@
 					{{email}}
 				</div>
 				<div class="user-data-pass">
-					<a>alterar senha</a>
+					<a ng-click="changepass()">alterar senha</a>
 				</div>
 				<div class="buttons">
 					<div>
-						<input id="cancel" type="submit" value="Cancelar"/>
+						<input id="cancel" ng-click="backtomap()" type="submit" value="Cancelar"/>
 					</div>
 					<div>
-						<input id="save" type="submit" value="Salvar"/>
+						<input id="save" ng-click="saveuser()" type="submit" value="Salvar"/>
 					</div>
 				</div>
 			</div>

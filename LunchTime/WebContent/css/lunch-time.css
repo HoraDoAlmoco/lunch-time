@@ -564,10 +564,34 @@ body {
 	box-shadow: 0 0 4px rgba(0,0,0,.14),2px 4px 8px rgba(0,0,0,.28);
 }
 
-.user-photo {
-	background-image: url(../img/dealwithit.png);
+#user-big-photo {
 	position: absolute;
-	background-size: 96px;
+	width: 360px;
+	height: 110px;
+	top: 1px;
+	-webkit-user-drag: none;
+	overflow: hidden;
+}
+
+#user-big-photo:before {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-image: url(../img/example.jpg);
+	background-position: 50% 40%;
+	background-repeat: no-repeat;
+	left: 0;
+	-webkit-filter: blur(5px);
+  	filter: blur(5px);
+  	clip: rect(0,360px,110px,0);
+  	overflow: hidden;
+}
+
+.user-photo {
+	background-image: url(../img/example.jpg);
+	position: absolute;
+	background-size: cover;
 	width: 96px;
 	height: 96px;
 	background-position: center;
