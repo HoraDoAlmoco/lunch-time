@@ -24,6 +24,18 @@
 				controller: "UserController"
 			});
 	})
+	.directive("listaCard", function(){
+		return {
+			restrict: "E",
+			templateUrl : "views/lista-card.html"
+		};
+	})
+	.directive("listaPrincipal", function(){
+		return {
+			restrict: "E",
+			templateUrl : "views/lista-principal.html"
+		};
+	})
 	.directive("setOnClick", function($compile){
 	  return {
 	    restrict: "A",

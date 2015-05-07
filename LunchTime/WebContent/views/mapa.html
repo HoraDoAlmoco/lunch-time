@@ -30,40 +30,10 @@
 	<div id="map-canvas" ng-click="menucontexto()"></div>
 	<div id="menu-id" class="menu" ng-class="menuClass">
 		<div class="menu-principal">
-			<ul class="lista-principal">
-				<li ng-click="meusdados()">
-					<span id="meus-dados-icon"></span>
-					<div>
-						<span id="meus-dados-label">Meus dados</span>
-					</div>
-				</li>
-				<li>
-					<span id="meus-grupos-icon"></span>
-					<div>
-						<span id="meus-grupos-label">Meus grupos</span>
-					</div>
-				</li>
-			</ul>
+			<lista-principal></lista-principal>
 		</div>
 		<div class="menu-card">
-			<ul class="lista-card">
-				<li ng-repeat="marker in markers | orderBy : ['-votado', '-quantidade'] | filter : filtroLocais">
-					<div class="card">
-						<div class="card-marker-icon {{marker.categoria}}"></div>
-						<div class="card-text-wrapper">
-							<div class="main-text card-text-truncate-and-wrap" ng-click="openInfoWindow($event, marker)">{{marker.titulo}}</div>
-							<div class="address-text card-text-truncate-and-wrap">{{marker.endereco}}</div>
-							<div class="info-text card-text-truncate-and-wrap">{{marker.extra}}</div>
-						</div>
-						<div class="card-info">
-							<div class="card-info-text">
-								<a>{{marker.votos}}</a>
-							</div>
-							<div class="card-info-vote {{marker.votado}}"></div>
-						</div>
-					</div>
-				</li>
-			</ul>
+			<lista-card></lista-card>
 		</div>
 	</div>
 </div>
