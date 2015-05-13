@@ -6,9 +6,7 @@
 		$scope.formData = {};
 		$scope.processLogin = function (){
 			//alert($scope.pass + " " + $scope.login);
-			//https://api.mongolab.com/api/1/databases/ltdb/collections/users?apiKey=YXgR-q92vuVCKlSm-ji3nplDTE7rHIQh
-			///lunchtime/local-principal.json
-			$http.get("https://api.mongolab.com/api/1/databases/ltdb/collections/users?apiKey=YXgR-q92vuVCKlSm-ji3nplDTE7rHIQh").success(function(data, status, headers, config) {
+			$http.get("lunchtime/local-principal.json").success(function(data, status, headers, config) {
 				$rootScope.usuario = {};
 				$rootScope.usuario.grupoPrincipal = {};
 				$rootScope.usuario.grupoPrincipal = data;
