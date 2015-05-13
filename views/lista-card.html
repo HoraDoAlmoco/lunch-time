@@ -1,0 +1,18 @@
+<ul class="lista-card">
+	<li ng-repeat="marker in markers | orderBy : ['-votado', '-quantidade'] | filter : filtroLocais">
+		<div class="card">
+			<div class="card-marker-icon {{marker.categoria}}"></div>
+			<div class="card-text-wrapper">
+				<div class="main-text card-text-truncate-and-wrap" ng-click="openInfoWindow($event, marker)">{{marker.titulo}}</div>
+				<div class="address-text card-text-truncate-and-wrap">{{marker.endereco}}</div>
+				<div class="info-text card-text-truncate-and-wrap">{{marker.extra}}</div>
+			</div>
+			<div class="card-info">
+				<div class="card-info-text">
+					<a>{{marker.votos}}</a>
+				</div>
+				<div class="card-info-vote {{marker.votado}}"></div>
+			</div>
+		</div>
+	</li>
+</ul>

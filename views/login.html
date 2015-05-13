@@ -1,0 +1,19 @@
+<div id="login-form">
+	<div>
+		<hgroup>
+			<h1 class="lunch-title"><span class="font-high">L</span>unch<span class="font-high">T</span>ime</h1>
+			<p class="tag-line">Ajudando o almoço dos indecisos.</p>
+		</hgroup>
+	</div>
+	<form ng-submit="processLogin()" ng-app="lunchTime" ng-controller="LoginController">
+		<div>
+			<input type="text" ng-model="login" placeholder="Usuário" autofocus="autofocus"/>
+		</div>
+		<div>
+			<input type="password" ng-model="pass" placeholder="Senha"/>
+		</div>
+		<div>
+			<input type="submit" id="submit" value="Entrar"/>
+		</div>
+	</form>
+</div>
