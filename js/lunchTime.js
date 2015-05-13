@@ -52,5 +52,5 @@ function fixInfoWindow(){
         	}
         }
         set.apply(this, arguments);
- 	}
+ 	};
 }

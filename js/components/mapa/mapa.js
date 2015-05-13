@@ -29,7 +29,7 @@
 		
 		$scope.meusdados = function (){
 			$state.go("user", {});
-		}
+		};
 		
 		var noPoi = [
 	 	{
@@ -77,7 +77,7 @@
 		    	info.endereco = local.endereco;
 		    	info.latitude = local.latitude;
 		    	info.longitude = local.longitude;
-		    	var infos = local.infos
+		    	var infos = local.infos;
 		    	info.extra = local.categoria;
 		    	info.categoria = local.categoria;
 		    	for (j = 0; j < infos.length; j++){
@@ -98,7 +98,7 @@
 	 		if(Number(info.votos[0]) > 1){
 	 			eixox = (Number(info.votos[0]) - 1) * 35 + 1;
 	 		}
-	 		if(info.votado != "") {
+	 		if(info.votado !== "") {
 	 			eixoy = 92;
 	 		}
 	 		
@@ -149,17 +149,17 @@
 	        
 	        $scope.markers.push(marker);
 	
-	 	}
+	 	};
 	
 	    
 	    $scope.filtroLocais = function(item){
 	    	return Number(item.quantidade) > 0;
-	    }
+	    };
 	    
 	    $scope.openInfoWindow = function(e, selectedMarker){
 	        e.preventDefault();
 	        google.maps.event.trigger(selectedMarker, 'click');
-	    }
+	    };
 	 	
 	 	$scope.coreToolBar = "red";
 	 	
@@ -175,17 +175,17 @@
 	 	$scope.iconMenuClass = "enable";
 	 	$scope.iconMenuClass = "close";
 	 	
-	 	$scope.title = "LunchTime"
+	 	$scope.title = "LunchTime";
 	 	$scope.coreTitle = "title-default";
 	 	
 	 	$scope.menushow = function(){
 	 		
-	 		if($scope.iconMenuClass == "close") {
+	 		if($scope.iconMenuClass === "close") {
 	 			$scope.iconMenuClass = "openmenu";
 	 	 	 	$scope.menuClass = "open";
 	 	 	 	$scope.iconSearchClass = "disable";
 	 	 	 	$scope.dummyDiv = "enable";
-	 	 	 	$scope.title = "Menu"
+	 	 	 	$scope.title = "Menu";
 	 		} else {
 	 			$scope.iconMenuClass = "close";
 	 	 	 	$scope.menuClass = "close";
@@ -193,7 +193,7 @@
 	 	 	 	$scope.dummyDiv = "disable";
 	 	 	 	$scope.title = "LunchTime";
 	 		}
-	 	}
+	 	};
 	 	
 	 	$scope.searchshow = function(){
 	 		if($scope.iconSearchBackClass == "disable") {
@@ -220,16 +220,16 @@
 	 	 	 	$scope.coreTitle = "title-default";
 	 	 	 	$scope.coresearchlist = "disable";
 	 		}
-	 	}
+	 	};
 	 	
 	 	$scope.changesearch = function(){
-	 		if($scope.searchtext.titulo != ""){
+	 		if($scope.searchtext.titulo !== ""){
 	 			$scope.coresearchlist = "enable";
 	 		} else {
 	 			$scope.coresearchlist = "disable";
 	 		}
 	 		
-	 	}
+	 	};
 	 	
 	 	google.maps.event.addListener($scope.map, 'mousedown', function (e) {
 	 		$scope.mousedownx = e.pixel.x;
@@ -249,7 +249,7 @@
 	 	
 	 	$scope.addtogroup = function(){
 	 		console.log("link clicked");
-	 	}
+	 	};
 	 	
-	}])
+	}]);
 })();

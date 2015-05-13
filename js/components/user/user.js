@@ -16,7 +16,7 @@
 				'centerLng': $rootScope.usuario.grupoPrincipal.longitude,
 				'nomePrincipal' : $rootScope.usuario.grupoPrincipal.nome
 			});
-		}
+		};
 		
-	}])
+	}]);
 })();
